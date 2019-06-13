@@ -1,5 +1,8 @@
-<%@page import="java.util.UUID" %>
-<%UUID uuid = UUID.randomUUID();%>
+<%-- 配置 --%>
+	<%
+		String ip = "127.0.0.1"; 
+	%> 
+<%-- END --%>  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html">
@@ -24,7 +27,7 @@
 </head>
 	<body>
 		<div id="placeholder"></div>
-	    <script type="text/javascript" src="http://172.16.153.13:9000/5.3.0-243/web-apps/apps/api/documents/api.js"></script>
+	    <script type="text/javascript" src="http://<%=ip%>:9000/5.3.0-243/web-apps/apps/api/documents/api.js"></script>
 	    <script>
 	        config = {
 	            "document": {
@@ -34,11 +37,11 @@
 		            },
 	                "fileType": "xlsx",
 	                "title": "<%out.print(request.getParameter("title"));%>",
-	                "url": "http://172.16.153.13:8080/www/Excel_sample/<% out.print(request.getParameter("file_name")); %>.xlsx"
+	                "url": "http://<%=ip%>:8080/www/Excel_sample/<% out.print(request.getParameter("file_name")); %>.xlsx"
 	            },
 	            "documentType": "spreadsheet",
 	            "editorConfig": {
-	                "callbackUrl": "http://172.16.153.13:8080/OA/excel_callback?id=<%out.print(request.getParameter("id"));%>",
+	                "callbackUrl": "http://<%=ip%>:8080/OA/excel_callback?id=<%out.print(request.getParameter("id"));%>",
 	                "lang": "zh-CN",
 	                "customization":{
 	                    "forcesave":true,
@@ -74,13 +77,13 @@
 	
 	        function flag(){
 	            if(message == 2){
-	                Socket("http://172.16.153.13:8080/OA/excel_utlis?con=InitializeFlag&id=<%out.print(request.getParameter("id"));%>");
+	                Socket("http://<%=ip%>:8080/OA/excel_utlis?con=InitializeFlag&id=<%out.print(request.getParameter("id"));%>");
 	                alert("Excel正在同步数据库！");
 	            }else if(message == 1){
-	                Socket("http://172.16.153.13:8080/OA/excel_utlis?con=Xlsx2SQL&id=<%out.print(request.getParameter("id"));%>");
+	                Socket("http://<%=ip%>:8080/OA/excel_utlis?con=Xlsx2SQL&id=<%out.print(request.getParameter("id"));%>");
 	                alert("Excel 同步完成！");
 	            }else{
-	            	Socket("http://172.16.153.13:8080/OA/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
+	            	Socket("http://<%=ip%>:8080/OA/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
 	            }
 	        }
 	        setInterval(flag,300);

@@ -28,7 +28,7 @@ public class UploadServlet extends HttpServlet {
 		try {
 		response.setContentType("text/html;charset=utf-8");
 		DiskFileItemFactory factory=new DiskFileItemFactory();
-		File f =new File("E:\\upload");
+		File f =new File("F:\\apache-tomcat-7.0.92\\www\\cache\\");
 		if(!f.exists()){
 			f.mkdirs();
 		}
@@ -65,7 +65,7 @@ public class UploadServlet extends HttpServlet {
 							//文件名需要唯一
 							filename =UUID.randomUUID().toString()+"_"+filename;
 							//在服务器创建同名文件
-							String webpath="/upload/";
+							String webpath="/cache/";
 							String filepath =getServletContext().getRealPath(webpath+filename);
 							//创建文件
 							File file=new File(filepath);
