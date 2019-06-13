@@ -40,5 +40,5 @@ function list(){
 }
 function load(){
     var right = document.getElementById("right");
-    right.innerHTML = "<iframe src=\"./ViewLoad.jsp\"></iframe>";
+    right.innerHTML = "<iframe src=\"./ViewLoad.jsp?id=10000_makexlsx&to=http://www.baidu.com\"></iframe>";
 }

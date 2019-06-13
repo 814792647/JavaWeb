@@ -1,3 +1,9 @@
+<%-- 配置 --%>
+	<%
+		String ip = "127.0.0.1"; 
+	%> 
+<%-- END --%>  
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -121,4 +127,38 @@
 			</div>
 		</div>
 	</body>
+	
+	<script>
+    var message;
+    function Socket(url){
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+        {
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                message = xmlhttp.responseText;
+                console.log(message);
+            }
+        }
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+    }
+    Socket("http://<%=ip%>:8080/OA/excel_debug?id=<%out.print(request.getParameter("id"));%>");
+	function flag(){
+        if(message == 0){
+            Socket("http://<%=ip%>:8080/OA/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
+        }else if(message == 1){
+        	window.location.href="<%out.print(request.getParameter("to"));%>";
+        }
+    }
+    setInterval(flag,300);
+	</script>
 </html>
