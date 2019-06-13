@@ -80,7 +80,7 @@
 	                Socket("http://127.0.0.1:8080/demo/excel_utlis?con=Xlsx2SQL&id=<%out.print(request.getParameter("id"));%>");
 	                alert("Excel 同步完成！");
 	            }else{
-	            	、、Socket("http://127.0.0.1:8080/demo/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
+	            	Socket("http://127.0.0.1:8080/demo/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
 	            }
 	        }
 	        setInterval(flag,300);
