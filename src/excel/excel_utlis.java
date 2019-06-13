@@ -58,7 +58,6 @@ public class excel_utlis extends HttpServlet {
 	public void Xlsx2SQL(HttpServletRequest request, HttpServletResponse response,ServletContext context) {
 		File file = new File("F:\\apache-tomcat-7.0.92\\www\\cache\\" + request.getParameter("id")+".xlsx");
 		file.delete();
-		
 		try {
 			PrintWriter write = response.getWriter();
 			write.write("2");

@@ -1,4 +1,4 @@
-﻿function edit_click(obj){
+function edit_click(obj){
     var td = document.getElementById(obj.name).getElementsByTagName("td");
     for(var i=0;i<td.length-3;i++){
         td[i].setAttribute("contenteditable","true");
@@ -36,5 +36,5 @@ function userlist(){
 
 function list(){
     var right = document.getElementById("right");
-    right.innerHTML = "<iframe \" src=\"./ViewExcel.jsp?file_nmae=123&title=张三&edit=true\"></iframe>";
+    right.innerHTML = "<iframe \" src=\"./ViewExcel.jsp?file_nmae=123&title=张三\"></iframe>";
 }
