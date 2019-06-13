@@ -1,12 +1,3 @@
-function  personnel_management(){
-    var body = document.getElementsByTagName("body")[0];
-    body.innerHTML += "<div style=\"width:85%;position: relative;left: 0;right: 0;margin: auto;\">" + 
-    "<form action=\"/OA/UploadServlet\" method=\"post\" enctype=\"multipart/form-data\">" + 
-    "<input class=\"update_files\" type=\"submit\" value=\"上传excel\">" +
-    "<label for=\"update\" class=\"update_files\">选择文件</label>" +
-    "<input id=\"update\" type=\"file\" style=\"position:absolute;clip:rect(0 0 0 0);\" \></form>" +
-    "</div>";
-}
 
 function edit_click(obj){
     var td = document.getElementById(obj.name).getElementsByTagName("td");
