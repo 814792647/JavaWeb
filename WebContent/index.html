@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/login_css.css">
+    <title>登陆</title>
+</head>
+<body>
+    <div class="main">
+        <div class="card-content">
+            <div class="register-content">
+                <div class="title">登陆</div>
+                <select class="select">
+                    <option value ="1">管理员</option>
+                    <option value ="2">部门1</option>
+                    <option value ="3">部门2</option>
+                </select>
+                <input id="username" type="text" placeholder="用户名">
+                <input id="password" type="password" placeholder="密码">
+                <input id="submit" type="button" placeholder="密码" value="登陆" onclick="login_click()">
+            </div>
+            <div class="login">没有账号？<a href="register.html">注册</a></div>
+        </div>
+        <div id="toast" class="toast"></div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/Utils.js"></script>
+<script>
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+
+    function login_click(){
+        if(username.value == "" || password.value == ""){
+            toast("账号密码不能为空");
+        }else{
+            submit("./Servlet/login?username=" + username.value + "&password=" + password.value,"./oa.html");
+        }
+    }
+</script>
+</html>

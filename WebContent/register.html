@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/registe_css.css">
+    <title>注册</title>
+</head>
+<body>
+    <div class="main">
+        <div class="card-content">
+            <div class="register-content">
+                <div class="title">注册</div>
+                <input id="username" type="text" placeholder="用户名">
+                <input id="password" type="password" placeholder="密码">
+                <input id="submit" type="button" placeholder="密码" value="注册" onclick="registe_click()">
+            </div>
+            <div class="login">已有账号？<a href="index.html">登录</a></div>
+        </div>
+        <div id="toast" class="toast"></div>
+    </div>
+</body>
+<script type="text/javascript" src="./js/Utils.js"></script>
+<script>
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+
+    function registe_click(){
+        if(username.value == "" || password.value == ""){
+            toast("账号密码不能为空");
+        }else{
+            var sec_passwd = prompt("再次输入密码确认提交注册", "");
+            if(password.value == sec_passwd){
+                submit("./cn.sgit.web.servlet/RegisterServlet?username=" + username.value + "&password=" + password.value,"./index.html");
+            }else{
+                toast("密码不一致");
+            }
+        }
+    }
+</script>
+</html>
