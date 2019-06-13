@@ -38,7 +38,7 @@
 	            },
 	            "documentType": "spreadsheet",
 	            "editorConfig": {
-	                "callbackUrl": "http://172.16.153.13:8080/demo/excel_callback?id=<%out.print(request.getParameter("id"));%>",
+	                "callbackUrl": "http://172.16.153.13:8080/OA/excel_callback?id=<%out.print(request.getParameter("id"));%>",
 	                "lang": "zh-CN",
 	                "customization":{
 	                    "forcesave":true,
@@ -74,13 +74,13 @@
 	
 	        function flag(){
 	            if(message == 2){
-	                Socket("http://127.0.0.1:8080/demo/excel_utlis?con=InitializeFlag&id=<%out.print(request.getParameter("id"));%>");
+	                Socket("http://127.0.0.1:8080/OA/excel_utlis?con=InitializeFlag&id=<%out.print(request.getParameter("id"));%>");
 	                alert("Excel正在同步数据库！");
 	            }else if(message == 1){
-	                Socket("http://127.0.0.1:8080/demo/excel_utlis?con=Xlsx2SQL&id=<%out.print(request.getParameter("id"));%>");
+	                Socket("http://127.0.0.1:8080/OA/excel_utlis?con=Xlsx2SQL&id=<%out.print(request.getParameter("id"));%>");
 	                alert("Excel 同步完成！");
 	            }else{
-	            	Socket("http://127.0.0.1:8080/demo/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
+	            	Socket("http://127.0.0.1:8080/OA/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
 	            }
 	        }
 	        setInterval(flag,300);
