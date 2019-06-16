@@ -36,9 +36,9 @@ function userlist(){
 
 function list(){
     var right = document.getElementById("right");
-    right.innerHTML = "<iframe src=\"./ViewExcel.jsp?file_nmae=123&title=张三\"></iframe>";
+    right.innerHTML = "<iframe src=\"./Base_html/ViewExcel.jsp?file_nmae=123&title=张三\"></iframe>";
 }
 function load(){
     var right = document.getElementById("right");
-    right.innerHTML = "<iframe src=\"./ViewLoad.jsp?id=10000_makexlsx&to=http://www.baidu.com\"></iframe>";
+    right.innerHTML = "<iframe src=\"./Base_html/ViewLoad.jsp?id=10000_makexlsx&to=http://www.baidu.com\"></iframe>";
 }
