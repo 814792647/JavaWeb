@@ -22,4 +22,8 @@ public class UserService {
 		return user;
 		
 	}
+	public void findAllDb(User user) {
+		User _user =userDao.findAllDb(user.getUsername(), user.getType());
+		
+	}
 }

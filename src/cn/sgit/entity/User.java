@@ -4,14 +4,7 @@ public class User {
 
 	private String username;
 	private String password;
-	private String VerifyCode;
-
-	public String getVerifyCode() {
-		return VerifyCode;
-	}
-	public void setVerifyCode(String verifyCode) {
-		VerifyCode = verifyCode;
-	}
+	private int type;
 	public String getUsername() {
 		return username;
 	}
@@ -24,11 +17,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password
-				+ ", VerifyCode=" + VerifyCode + "]";
+		return "User [username=" + username + ", password=" + password + ", type=" + type + "]";
 	}
-
+	
 	
 }
