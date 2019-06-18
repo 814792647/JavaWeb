@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.sgit.entity.User;
 import cn.sgit.utils.JdbcUtils;
@@ -64,5 +66,33 @@ public class UserDao {
 		}finally{
 			JdbcUtils.free(con, pre, null);
 		}
+	}
+	public static User findAllDb(String username ,int type){
+		Connection con=null;
+		PreparedStatement pre=null;
+		ResultSet rs=null;
+		try {
+			con=JdbcUtils.getConnection();
+			String sql="SELECT * FROM t_user username='?' and type='?'";
+			pre=con.prepareStatement(sql);
+			pre.setString(0, "t_user");
+			rs=pre.executeQuery();
+			if(rs==null) {
+				return null; 
+			}
+			if(rs.next()) {
+				User user=new User();
+				user.setUsername(rs.getString("username"));
+				user.setType(rs.getInt("type"));
+			}else {
+				return null;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			JdbcUtils.free(con, pre, rs);
+		}
+		return null ;
 	}
 }
