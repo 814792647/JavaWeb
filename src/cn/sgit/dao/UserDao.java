@@ -93,6 +93,6 @@ public class UserDao {
 		}finally{
 			JdbcUtils.free(con, pre, rs);
 		}
-		return null ;
+		return null;
 	}
 }
