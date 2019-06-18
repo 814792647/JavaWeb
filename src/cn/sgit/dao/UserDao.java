@@ -38,10 +38,11 @@ public class UserDao {
 				return null;
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			e.printStackTrace();
 		}finally{
 			JdbcUtils.free(con, pre, rs);
 		}
+		return null;
 	}
 
 	public void add(User user){

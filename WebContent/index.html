@@ -34,7 +34,7 @@
         if(username.value == "" || password.value == ""){
             toast("账号密码不能为空");
         }else{
-            submit("./Servlet/login?username=" + username.value + "&password=" + password.value,"./oa.html");
+            submit("./LoginServlet?username=" + username.value + "&password=" + password.value,"./oa.html");
         }
     }
 </script>
