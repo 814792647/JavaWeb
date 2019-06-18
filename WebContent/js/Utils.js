@@ -24,7 +24,7 @@ function  submit(data,url){
         if(xmlhttp.readyState == 4){
             if (xmlhttp.status==200){
                 if(xmlhttp.responseText != 1){
-                    toast("账号密码错误");
+                    toast(xmlhttp.responseText);
                 }else{
                     window.location.href=url;
                 }

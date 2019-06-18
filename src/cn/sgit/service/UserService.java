@@ -16,9 +16,9 @@ public class UserService {
 	}
 	public User login(User form) throws UserException{
 		User user=userDao.findByUsername(form.getUsername());
-		if(user==null) throw new UserException("用户名不存在！");
+		if(user==null) throw new UserException(" 用户名不存在!");
 		if(!form.getPassword().equals(user.getPassword()))
-			throw new UserException("密码错误！");
+			throw new UserException(" 用户名或密码错误!");
 		return user;
 		
 	}
