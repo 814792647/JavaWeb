@@ -72,11 +72,11 @@
         xmlhttp.open("GET",url,true);
         xmlhttp.send();
     }
-    Socket("http://<%=ip%>:8080/OA/excel_debug?id=<%out.print(request.getParameter("id"));%>");
+    Socket("http://<%=ip%>:8080/OA/Xlsx2SQL?id=<%out.print(request.getParameter("id"));%>");
 	function flag(){
         if(message == 0){
             Socket("http://<%=ip%>:8080/OA/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");
-        }else if(message == 1){
+        }else if(message == 2){
         	Socket("http://<%=ip%>:8080/OA/excel_utlis?con=InitializeFlag&id=<%out.print(request.getParameter("id"));%>");
         	window.location.href="<%out.print(request.getParameter("to"));%>";
         }
