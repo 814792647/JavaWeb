@@ -23,9 +23,12 @@ function  submit(data,url){
     xmlhttp.onreadystatechange=function(){
         if(xmlhttp.readyState == 4){
             if (xmlhttp.status==200){
-                if(xmlhttp.responseText != 1){
+            	var json = xmlhttp.responseText;
+            	json = JSON.parse(json);
+                if(json.status != 1){
                     toast(xmlhttp.responseText);
                 }else{
+                	document.cookie = "id="+json.id;
                     window.location.href=url;
                 }
             }else{

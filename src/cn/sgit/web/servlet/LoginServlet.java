@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 			form.setPassword(request.getParameter("password"));
 			User user=userService.login(form);
 			//没异常
-			write.write("1");
+			write.write("{ \"status\":\"1\",\"id\": \"" + user.getUsername() +"\"}");
 		} catch (UserException e) {
 			//有异常
 			write.write(e.getMessage());
