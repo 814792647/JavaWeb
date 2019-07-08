@@ -28,7 +28,7 @@ public class xlsx2sql {
 			XSSFSheet sheet = xlsx.getSheetAt(0);	
 			XSSFRow row;
 			row = sheet.getRow(0);
-			return row.getCell(0).toString();
+			return row.getCell(1).toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

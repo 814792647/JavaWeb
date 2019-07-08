@@ -12,7 +12,7 @@ function toast(message){
     div.style.animation = "toast-animation 2s";
 }
 
-function  submit(data,url){
+function submit(data,url){
     var xmlhttp;
     if (window.XMLHttpRequest){
         xmlhttp=new XMLHttpRequest();
@@ -23,14 +23,20 @@ function  submit(data,url){
     xmlhttp.onreadystatechange=function(){
         if(xmlhttp.readyState == 4){
             if (xmlhttp.status==200){
-            	var json = xmlhttp.responseText;
-            	json = JSON.parse(json);
-                if(json.status != 1){
-                    toast(xmlhttp.responseText);
-                }else{
-                	document.cookie = "id="+json.id;
-                    window.location.href=url;
-                }
+            	try{
+                	var json = xmlhttp.responseText;
+                	json = JSON.parse(json);
+                    if(json.status == 1){
+                    	document.cookie = "id="+json.id;
+                        window.location.href=url;
+                    }else if(json.status == 2){
+                    	window.location.href=url;
+                    }else if(json.status == 3){
+                    	toast(json.msg);
+                    }
+            	}catch(err){
+            		toast("账号或密码错误");
+            	}
             }else{
                 toast("连接超时...");
             }

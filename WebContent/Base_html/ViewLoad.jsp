@@ -1,6 +1,6 @@
 <%-- 配置 --%>
 	<%
-		String ip = "192.168.1.7"; 
+		String ip = "192.168.1.8"; 
 	%> 
 <%-- END --%>  
 
@@ -72,7 +72,7 @@
         xmlhttp.open("GET",url,true);
         xmlhttp.send();
     }
-    Socket("http://<%=ip%>:8080/OA/Xlsx2SQL?id=<%out.print(request.getParameter("id"));%>");
+    Socket("http://<%=ip%>:8080/OA/excel_utlis?con=Xlsx2SQL&id=<%out.print(request.getParameter("id"));%>");
 	function flag(){
         if(message == 0){
             Socket("http://<%=ip%>:8080/OA/excel_utlis?con=GetFlag&id=<%out.print(request.getParameter("id"));%>");

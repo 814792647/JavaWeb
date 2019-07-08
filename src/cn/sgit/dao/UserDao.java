@@ -58,11 +58,11 @@ public class UserDao {
 
 			pre.setString(1, user.getUsername());
 			pre.setString(2, user.getPassword());
-
+			
 			pre.execute();
 			
 		} catch (SQLException e) {
-			throw new RuntimeException();
+			e.printStackTrace();
 		}finally{
 			JdbcUtils.free(con, pre, null);
 		}
