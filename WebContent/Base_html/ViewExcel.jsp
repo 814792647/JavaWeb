@@ -1,6 +1,6 @@
 <%-- 配置 --%>
 	<%
-		String ip = "192.168.1.7"; 
+		String ip = "192.168.1.8"; 
 	%> 
 <%-- END --%>  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
